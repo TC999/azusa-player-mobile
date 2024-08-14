@@ -96,7 +96,7 @@ jobs:
       #    yarn codepush:promote --token ${{secrets.CODEPUSH_ACCESS_TOKEN}}
 
       - name: gradle build APK
-        run: cd android && chmod +x gradlew && ./gradlew assembleRelease && ./gradlew assembleRelease --stacktrace --debug
+        run: cd android && chmod +x gradlew && ./gradlew assembleRelease --stacktrace --debug --log-level=debug
 
       - name: Release APK
         uses: softprops/action-gh-release@v2
@@ -198,7 +198,7 @@ jobs:
         run: rm -rf android/app/build/generated/
 
       - name: gradle build AAB
-        run: cd android && chmod +x gradlew && ./gradlew bundleRelease
+        run: cd android && chmod +x gradlew && ./gradlew bundleRelease --stacktrace --debug
 
       - uses: actions/upload-artifact@v4
         with:
