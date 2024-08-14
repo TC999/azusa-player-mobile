@@ -67,8 +67,8 @@ jobs:
 
       - name: commit
         run: |
-          git config --global user.email 106490582+lovegaoshi@users.noreply.github.com
-          git config --global user.name lovegaoshi
+          git config --global user.email 88823709+TC999@users.noreply.github.com 
+          git config --global user.name TC999
           git commit -m "build: release version bump" -a
 
       - name: python fixHTTP
@@ -164,8 +164,8 @@ jobs:
 
       - name: commit
         run: |
-          git config --global user.email 106490582+lovegaoshi@users.noreply.github.com
-          git config --global user.name lovegaoshi
+          git config --global user.email 88823709+TC999@users.noreply.github.com 
+          git config --global user.name TC999
           git commit -m "build: release version bump" -a
           git tag $COMMIT_TAG-fdroid
 
