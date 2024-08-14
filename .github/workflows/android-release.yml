@@ -11,6 +11,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Run Gradle with Debug
+        run: ./gradlew assembleRelease --stacktrace --debug
+
       - name: Checkout
         uses: actions/checkout@v4
 
