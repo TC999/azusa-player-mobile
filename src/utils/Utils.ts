@@ -52,10 +52,10 @@ export const WeightedChoice = <T>(list: [T, number][]) => {
   const sum = list.reduce((a, b) => a + b[1], 0);
   const random = Math.random() * sum;
   let current = 0;
-  for (const item of list) {
-    current += item[1];
+  for (let i = 0; i < list.length; i++) {
+    current += list[i][1];
     if (current >= random) {
-      return item[0];
+      return list[i][0];
     }
   }
   return list[0][0];

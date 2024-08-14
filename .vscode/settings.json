@@ -3,5 +3,8 @@
   "editor.formatOnSave": true,
   "search.exclude": {
     "MusicFreePlugins": true
-  }
+  },
+  "i18n-ally.localesPaths": [
+    "docs/i18n"
+  ]
 }

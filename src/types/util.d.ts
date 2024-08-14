@@ -7,8 +7,6 @@ declare namespace NoxUtils {
     prefetch?: boolean;
   }
 
-  type Nullable<T> = T | null;
-
   export type RegexMatchResolve<T> = [
     RegExp,
     (song: NoxMedia.Song, iOS?: boolean) => T,

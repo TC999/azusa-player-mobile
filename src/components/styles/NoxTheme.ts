@@ -68,7 +68,7 @@ export default {
     },
   ],
   backgroundImagesLandscape: [
-    'https://i0.hdslb.com/bfs/live/room_bg/1428a93e4a983a7a6e7ba3dc62b064e403fc8354.png',
+    'http://i0.hdslb.com/bfs/live/room_bg/1428a93e4a983a7a6e7ba3dc62b064e403fc8354.png',
   ],
 
   customColors: {

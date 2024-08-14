@@ -172,16 +172,6 @@ class NoxMediaCache {
     return this.cache.peek(noxCacheKey(song));
   };
 
-  deleteCache = (val: string) => {
-    const fspath = this.cache.get(val);
-    if (fspath) RNFetchBlob.fs.unlink(fspath).catch();
-    this.cache.delete(val);
-  };
-
-  deleteSongCache = (song: NoxMedia.Song) => {
-    this.deleteCache(noxCacheKey(song));
-  };
-
   getOrphanedCache = (songList: NoxMedia.Song[]) => {
     const songListKeys = songList.map(song => noxCacheKey(song));
     return Array.from(this.cache.keys()).filter(
@@ -190,7 +180,11 @@ class NoxMediaCache {
   };
 
   cleanOrphanedCache = (orphanedList: string[]) => {
-    orphanedList.forEach(val => this.deleteCache(val));
+    orphanedList.forEach(val => {
+      const fspath = this.cache.get(val);
+      if (fspath) RNFetchBlob.fs.unlink(fspath).catch();
+      this.cache.delete(val);
+    });
   };
 
   clearCache = () => {
@@ -199,7 +193,6 @@ class NoxMediaCache {
     }
     this.cache.clear();
   };
-
   cacheSize = () => Array.from(this.cache.keys()).length;
 }
 

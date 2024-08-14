@@ -36,7 +36,6 @@ import NoxTheme from '@components/styles/NoxTheme';
 import AdaptiveTheme from '@components/styles/AdaptiveTheme';
 import { getUniqObjects } from '@utils/Utils';
 import GenericSelectDialog from '../../dialogs/GenericSelectDialog';
-import { getStyle } from '@utils/StyleStorage';
 
 interface DisplayTheme extends NoxTheme.Style {
   builtin: boolean;
@@ -272,7 +271,7 @@ const SkinSettings = () => {
             skin={item as DisplayTheme}
             checked={checked}
             key={getThemeID(item as DisplayTheme)}
-            onHold={() => setSelectSkin(getStyle(item))}
+            onHold={() => setSelectSkin(item)}
             selectTheme={() => selectTheme(item)}
           />
         )}

@@ -11,8 +11,7 @@ import {
 } from '@utils/ChromeStorage';
 import { logger } from '@utils/Logger';
 import rejson from '../utils/rejson.json';
-import { loadJSONRegExtractors } from '../utils/re';
-import noxCache from '@utils/Cache';
+import { LoadJSONRegExtractors } from '../utils/re';
 
 interface AppStore {
   pipMode: boolean;
@@ -89,7 +88,7 @@ export const initialize = async () => {
     ABRepeat: await getABMapping(),
     fadeIntervalMs: fadeInterval,
     fadeIntervalSec: fadeInterval / 1000,
-    reExtractSongName: loadJSONRegExtractors(
+    reExtractSongName: LoadJSONRegExtractors(
       savedRegExt.length > 0
         ? savedRegExt
         : (rejson as NoxRegExt.JSONExtractor[])
@@ -189,9 +188,8 @@ export const cacheResolvedURL = async (
   return cachedResolvedURL;
 };
 
-export const resetResolvedURL = (song?: NoxMedia.Song, deleteCache = false) => {
+export const resetResolvedURL = (song?: NoxMedia.Song) => {
   if (song) {
-    deleteCache && noxCache.noxMediaCache.deleteSongCache(song);
     const cachedResolveURLMap = appStore.getState().cachedResolveURLMap;
     appStore.setState({
       cachedResolveURLMap: { ...cachedResolveURLMap, [song.id]: undefined },

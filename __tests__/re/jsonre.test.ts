@@ -1,7 +1,7 @@
 import rejson from '../../src/utils/rejson.json';
-import { loadJSONRegExtractors } from '../../src/utils/re';
+import { LoadJSONRegExtractors } from '../../src/utils/re';
 
-const reExtractSongName = loadJSONRegExtractors(rejson);
+const reExtractSongName = LoadJSONRegExtractors(rejson);
 
 test('王胡桃w', () => {
   expect(
