@@ -11,9 +11,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Run Gradle with Debug
-        run: ./gradlew assembleRelease --stacktrace --debug
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -99,7 +96,7 @@ jobs:
       #    yarn codepush:promote --token ${{secrets.CODEPUSH_ACCESS_TOKEN}}
 
       - name: gradle build APK
-        run: cd android && chmod +x gradlew && ./gradlew assembleRelease
+        run: cd android && chmod +x gradlew && ./gradlew assembleRelease && ./gradlew assembleRelease --stacktrace --debug
 
       - name: Release APK
         uses: softprops/action-gh-release@v2
